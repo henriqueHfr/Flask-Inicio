@@ -1,13 +1,12 @@
 {% extends "template.html" %}
 {% block conteudo %}
     <form method="post" action="{{ url_for('criar') }}" enctype="multipart/form-data">
-
         <figure class="img-thumbnail col-md-4">
             <img src="{{ url_for('imagem', nome_arquivo='capa_padrao.webp') }}" alt="" class="img-fluid">
             <figcaption>
                 <label class="fileContainer">
                     Adicionar Capa
-                    <input type="file" name="arquivo" accept=".jpg" />
+                    <input type="file" name="arquivo" accept="image/jpeg" />
                 </label>
             </figcaption>
         </figure>
