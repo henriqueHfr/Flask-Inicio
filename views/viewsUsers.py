@@ -19,10 +19,9 @@ def autenticar():
     usuario = Usuarios.query.filter_by(nickname=form.nickname.data).first()
     senha = check_password_hash(usuario.senha, form.senha.data)
     if usuario and senha:
-        session['usuario_logado'] = usuario.nickname
+        session['usuario_logado'] = usuario.id
         flash(usuario.nickname + ' logado com sucesso!')
-        proxima_pagina = request.form['proxima']
-        return redirect(proxima_pagina)
+        return redirect('/')
     else:
         flash('Usuário não logado.')
         return redirect(url_for('login'))
